@@ -1,0 +1,19 @@
+meta {
+  name: Get All Players
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/players
+  body: none
+  auth: inherit
+}
+
+headers {
+  Accept: */*
+}
+
+settings {
+  encodeUrl: true
+}

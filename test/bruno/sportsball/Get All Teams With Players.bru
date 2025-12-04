@@ -1,0 +1,15 @@
+meta {
+  name: Get All Teams With Players
+  type: http
+  seq: 11
+}
+
+get {
+  url: {{baseUrl}}/teams/players
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

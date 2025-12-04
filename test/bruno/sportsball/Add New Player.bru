@@ -1,0 +1,23 @@
+meta {
+  name: Add New Player
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/players
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "name": "Calvin",
+      "goalCount": 5,
+      "birthDate": "2000-05-01"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

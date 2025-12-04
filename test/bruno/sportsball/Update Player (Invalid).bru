@@ -1,0 +1,21 @@
+meta {
+  name: Update Player (Invalid)
+  type: http
+  seq: 8
+}
+
+patch {
+  url: {{baseUrl}}/players/2
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "goalCount": true
+  }
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,21 @@
+meta {
+  name: Update Player (Wrong ID)
+  type: http
+  seq: 9
+}
+
+patch {
+  url: {{baseUrl}}/players/1234
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "name": "Hobbes"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
