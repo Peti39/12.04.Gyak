@@ -30,7 +30,7 @@ export class PlayersService {
       where:{id}
     })
     if(!xplay){
-      throw new Error (`Player not found on ID: ${id}` )
+      throw new Error (`ErrorPlayer not found on ID: ${id}` )
     }
     return xplay
     } catch (e) {
@@ -43,15 +43,23 @@ export class PlayersService {
     */
   }
 
-  update(id: number, updatePlayerDto: UpdatePlayerDto) {
-    
-      return this.db.player.update({
+  async update(id: number, updatePlayerDto: UpdatePlayerDto) {
+    try {
+     const xplay = await this.db.player.update({
         where:{id},
         data:{
           ...updatePlayerDto,
           birthDate: updatePlayerDto.birthDate? new Date(updatePlayerDto.birthDate) : undefined
         }
       })
+      if(!xplay){
+      throw new Error (`Player not found on ID: ${id}` )
+    }
+    return xplay
+    } catch (e) {
+      return {error: `${e}`}
+    }
+
 
   }
 
